@@ -16,9 +16,12 @@ function renderTasks() {
         }
 
         listItem.innerHTML = `
-      <span>${task.text}</span>
-      <button onclick="toggleTask(${index})">Erledigt</button>
-    `;
+  <span>${task.text}</span>
+  <div>
+    <button onclick="toggleTask(${index})">Erledigt</button>
+    <button onclick="deleteTask(${index})">Löschen</button>
+  </div>
+`;
 
         taskList.appendChild(listItem);
     });
@@ -44,6 +47,11 @@ function addTask() {
 
 function toggleTask(index) {
     tasks[index].done = !tasks[index].done;
+    renderTasks();
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
     renderTasks();
 }
 
