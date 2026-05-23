@@ -53,3 +53,9 @@ function updateCounter() {
 }
 
 addTaskButton.addEventListener('click', addTask);
+
+taskInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        addTask();
+    }
+});
